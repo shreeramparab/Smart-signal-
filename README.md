@@ -1,7 +1,7 @@
 # Smart Signal Detection 🚦
 
 ## 📖 Introduction
-**Smart Signal Detection** is a computer vision–powered web application built with **Flask** and **OpenCV**.  
+*Smart Signal Detection* is a computer vision–powered web application built with *Flask* and *OpenCV*.  
 It uses a Haar Cascade classifier to detect objects (faces/signals) from a live webcam feed and dynamically updates a simulated traffic signal indicator (red/green).  
 
 This project demonstrates how real-time vision can be integrated into traffic management systems, serving as a foundation for smarter navigation and safety solutions.
@@ -9,23 +9,19 @@ This project demonstrates how real-time vision can be integrated into traffic ma
 ---
 
 ## 📸 Screenshots
-- **Traffic Signal UI**: Displays a live webcam feed and a dynamic signal indicator.
+- *Traffic Signal UI*: Displays a live webcam feed and a dynamic signal indicator.  
+![Upload Screenshot](images/detected.png)
 
-
-![Traffic Signal]()
-
-
-- **Signal States**: Green when no object is detected, Red when detection occurs.  
-
-
-![Signal States]()
+- *Signal States*: Green when no object is detected, Red when detection occurs.  
+![Upload Screenshot](images/1.png)
+![Upload Screenshot](images/2.png)
 
 ---
 
 ## 🔧 Tech Stack
-- **Backend**: Flask (Python)  
-- **Computer Vision**: OpenCV (Haar Cascade Classifier)  
-- **Frontend**: HTML, CSS
+- *Backend*: Flask (Python)  
+- *Computer Vision*: OpenCV (Haar Cascade Classifier)  
+- *Frontend*: HTML, CSS
 
 ---
 
