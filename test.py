@@ -1,19 +1,24 @@
 import cv2
+import numpy as np
 import time
 from flask import Flask, Response, jsonify, render_template
 
 app = Flask(__name__)
+
+# Load Haar Cascade XML
 cascade = cv2.CascadeClassifier(r"C:\Users\devgu\Downloads\haarcascade_frontalface_alt2.xml")
 
 cap = cv2.VideoCapture(0)
 color = 'green'
 last_switch = time.time()
 
-def detect_object(frame):
+def detect_object_and_draw(frame):
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    objects = cascade.detectMultiScale(gray, 1.1, 5)
+    objects = cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5)
+
     for (x, y, w, h) in objects:
-        cv2.rectangle(frame, (x, y), (x+w, y+h), (0,255,0), 2)
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+
     return len(objects) > 0, frame
 
 def gen_frames():
@@ -23,15 +28,17 @@ def gen_frames():
         if not success:
             break
 
-        detected, frame = detect_object(frame)
-        if detected:
+        object_detected, frame_with_boxes = detect_object_and_draw(frame)
+
+        # Signal logic remains the same
+        if object_detected:
             color = 'red'
         else:
             if time.time() - last_switch > 2:
                 color = 'red' if color == 'green' else 'green'
                 last_switch = time.time()
 
-        ret, buffer = cv2.imencode('.jpg', frame)
+        ret, buffer = cv2.imencode('.jpg', frame_with_boxes)
         frame_bytes = buffer.tobytes()
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
