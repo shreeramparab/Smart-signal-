@@ -9,12 +9,12 @@ This project demonstrates how real-time vision can be integrated into traffic ma
 ---
 
 ## 📸 Screenshots
-- *Traffic Signal UI*: Displays a live webcam feed and a dynamic signal indicator.  
-![Upload Screenshot](images/detected.png)
+- *Traffic Signal UI*: Displays a live webcam feed and a dynamic signal indicatorr.  
+![Upload Screenshot](images/detected.jpg)
 
 - *Signal States*: Green when no object is detected, Red when detection occurs.  
-![Upload Screenshot](images/1.png)
-![Upload Screenshot](images/2.png)
+![Upload Screenshot](images/1.jpg)
+![Upload Screenshot](images/2.jpg)
 
 ---
 
